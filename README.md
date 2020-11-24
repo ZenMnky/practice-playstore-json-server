@@ -6,3 +6,6 @@ Practice using express to:
 - validate queries if provided
 - sort and filter response data based on queries
 - return json
+
+## Note:
+- Genres search is not functioning as expected. Needs further investigation.
