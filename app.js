@@ -26,14 +26,14 @@ app.get('/apps', (req, res) => {
         } else {
             return res
                 .status(400)
-                .send(`sort must be either 'app' or 'rating'`)
+                .send(`sort key must be either 'app' or 'rating'`)
         }
     }
 
     if(sort === ''){
         return res
         .status(400)
-        .send(`Sort must have a value if it is included in the query`)
+        .send(`Sort must have a value if it is included in the query. Value options: 'app' or 'rating'`)
     }
     
     if(genres){
