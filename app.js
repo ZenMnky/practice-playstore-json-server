@@ -55,7 +55,7 @@ app.get('/apps', (req, res) => {
     let results = playApps;
 
     if(genres){
-        results.filter(app => app['Genres'].includes(genres))
+        results = results.filter(app => app['Genres'].includes(genres))
     }
     
     if(sort){
