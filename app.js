@@ -1,14 +1,15 @@
 const express = require('express'); // web server
 const morgan = require('morgan'); // server log
 const cors = require('cors'); // config cors
+const helmet = require('helmet'); // header security configs
 
 // instantiate app
 const app = express();
-const PORT = 8000;
 
 // bind middleware
 app.use(morgan('common'));
 app.use(cors());
+app.use(helmet());
 
 // access data
 const playApps = require('./playstore.js');
@@ -89,8 +90,4 @@ app.get('/apps', (req, res) => {
     return res.json(results)
 })
 
-
-// activate server
-app.listen(PORT, () => {
-    console.log(`Server started on PORT ${PORT}`)
-})
+module.exports = app;
