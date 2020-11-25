@@ -18,6 +18,19 @@ describe('App module', () => {
         // returns an error if sort does not have a value
         // returns an error if genre does not have a value
 
+        it('returns a JSON array of apps', () => {
+            return supertest(app)
+                .get('/apps')
+                .expect(200)
+                .expect('Content-Type', /json/)
+                .then(res => {
+                    expect(res.body).to.be.an('array');
+                    expect(res.body).to.have.lengthOf.at.least(10);//>= 10
+                    expect(res.body[0]).to.be.an('object');
+                    expect(res.body[0]).to.includes.keys('App', 'Category', 'Genres');
+                })
+        } )
+
         it('returns an error if genre is not a valid type', () => {
 
         })
